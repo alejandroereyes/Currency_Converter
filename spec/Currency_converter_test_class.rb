@@ -18,5 +18,7 @@ class TestCurrencyConverter < Minitest::Test
     setup_converter
     converter = CurrencyConverter.new
     assert_equal(0.89, converter.convert("USD", 1.00, "EUR"))
+    assert_equal(63.57, converter.convert("USD", 1.00, "INR"))
+    assert_equal(0.70, converter.convert("EUR", 1.00, "GBP"))
   end
 end
