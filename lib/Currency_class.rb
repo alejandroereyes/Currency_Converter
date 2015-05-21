@@ -17,9 +17,18 @@ class Currency
   def -(other)
     if other.is_a?(Currency) && @code == other.code
       @amount -= other.amount
+    else
+      dif_currency_msg
     end
   end
 
+  def +(other)
+    if other.is_a?(Currency) && @code == other.code
+      @amount += other.amount
+    else
+      dif_currency_msg
+    end
+  end
 
   def add_currency(giver_code, amount)
     if giver_code == @code
