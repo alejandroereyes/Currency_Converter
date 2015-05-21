@@ -5,4 +5,4 @@ class Currency
     @code = code
     @amount = amount
   end
-end
+end # class
