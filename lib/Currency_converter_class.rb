@@ -14,7 +14,7 @@ class CurrencyConverter
 
   def convert(start_currency_obj, end_currency_code)
     if @rates.has_key?(start_currency_obj.code) && @rates.has_key?(end_currency_code)
-      "hi there"
+
     else
       unknown_currency_error_message
     end
