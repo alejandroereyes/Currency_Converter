@@ -15,7 +15,8 @@ class Currency
   end
 
   def -(other)
-    if other.is_a(Currency) && @code == other.code
+    if other.is_a?(Currency) && @code == other.code
+      @amount -= other.amount
     end
   end
 

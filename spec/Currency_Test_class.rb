@@ -25,10 +25,10 @@ class Currency_Test < Minitest::Test
    assert_equal(new_currency.amount, @currency.amount)
   end
 
-  def test_double_equals
+  def test_double_equals_override
     setup_Currency_class
     new_currency = Currency.new("USD", 100_000_000)
-    assert_equal(new_currency, @currency)
+    assert_equal(true, new_currency == @currency)
   end
 
   def test_diff_instances_of_Currency_with_diff_values
@@ -43,6 +43,13 @@ class Currency_Test < Minitest::Test
     new_currency = Currency.new("USD", 0)
     new_currency.add_currency(@currency.code, 100_000_000)
     assert_equal(100_000_000, new_currency.amount)
+  end
+
+  def test_substraction_override
+    setup_Currency_class
+    new_currency = Currency.new("USD", 999)
+    @currency - new_currency
+    assert_equal(99_999_001, @currency.amount)
   end
 
   def test_subtract_currency_method
