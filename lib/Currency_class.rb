@@ -11,4 +11,10 @@ class Currency
       @amount += amount
     end
   end
+
+  def sub_currency(taker_code, amount)
+    if taker_code == @code
+      @amount -= amount
+    end
+  end
 end # class

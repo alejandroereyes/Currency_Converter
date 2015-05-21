@@ -38,6 +38,13 @@ class Currency_Test < Minitest::Test
     new_currency.add_currency(@currency.code, 100_000_000)
     assert_equal(100_000_000, new_currency.amount)
   end
+
+  def test_subtract_currency_method
+    setup_Currency_class
+    new_currency = Currency.new("USD", 0)
+    @currency.sub_currency(new_currency.code, 100_000_000)
+    assert_equal(0, @currency.amount)
+  end
 end # class
 
 
