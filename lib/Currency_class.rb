@@ -6,6 +6,20 @@ class Currency
     @amount = amount
   end
 
+  def ==(other)
+    if other.is_a?(Currency) && @code == other.code && @amount == other.amount
+      true
+    else
+      false
+    end
+  end
+
+  def -(other)
+    if other.is_a(Currency) && @code == other.code
+    end
+  end
+
+
   def add_currency(giver_code, amount)
     if giver_code == @code
       @amount += amount

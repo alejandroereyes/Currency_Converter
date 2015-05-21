@@ -25,6 +25,12 @@ class Currency_Test < Minitest::Test
    assert_equal(new_currency.amount, @currency.amount)
   end
 
+  def test_double_equals
+    setup_Currency_class
+    new_currency = Currency.new("USD", 100_000_000)
+    assert_equal(new_currency, @currency)
+  end
+
   def test_diff_instances_of_Currency_with_diff_values
     setup_Currency_class
     new_currency = Currency.new("NIO", 1_000)
