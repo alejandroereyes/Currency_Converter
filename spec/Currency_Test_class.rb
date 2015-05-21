@@ -60,6 +60,12 @@ class Currency_Test < Minitest::Test
     assert_equal("Currencies do not match!", new_currency.add_currency(@currency.code, 1_000))
   end
 
+  def test_multiply_currency_method
+    setup_Currency_class
+    multiplier = 2.3
+    assert_equal(Currency , @currency.multiply_currency(multiplier).class)
+  end
+
 end # class
 
 

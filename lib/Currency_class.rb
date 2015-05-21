@@ -25,4 +25,10 @@ class Currency
   def dif_currency_msg
     "Currencies do not match!"
   end
+
+  def multiply_currency(num)
+    new_amount = num * @amount
+    new_money = Currency.new(@code, new_amount)
+    new_money
+  end
 end # class
