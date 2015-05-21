@@ -7,7 +7,8 @@ class CurrencyConverter
               "ZAR"=> 11.8514, "NZD"=> 1.36116, "JPY"=> 121.026}
   end
 
-  def convert(start_code, end_code)
-
+  def convert(start_code, start_amount, end_code)
+    num = start_amount*(@rates[end_code] / @rates[start_code])
+    ((num * 100).floor.round(2))/100
   end
 end
