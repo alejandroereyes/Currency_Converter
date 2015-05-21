@@ -5,4 +5,10 @@ class Currency
     @code = code
     @amount = amount
   end
+
+  def add_currency(giver_code, amount)
+    if giver_code == @code
+      @amount += amount
+    end
+  end
 end # class
