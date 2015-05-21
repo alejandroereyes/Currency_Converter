@@ -1,10 +1,11 @@
 require 'minitest/autorun'
 require_relative '../lib/Currency_converter_class.rb'
+require_relative '../lib/Currency_class.rb'
 
 class TestCurrencyConverter < Minitest::Test
 
   def setup_converter
-    converter = CurrencyConverter.new
+    @converter = CurrencyConverter.new
   end
 
   def test_converter_has_rates
@@ -20,5 +21,14 @@ class TestCurrencyConverter < Minitest::Test
     assert_equal(0.89, converter.convert_math("USD", 1.00, "EUR"))
     assert_equal(63.57, converter.convert_math("USD", 1.00, "INR"))
     assert_equal(0.70, converter.convert_math("EUR", 1.00, "GBP"))
+  end
+
+  def test_converter_method
+    setup_converter
+    us_money = Currency.new("USD", 1_000)
+    uk_money = @converter.convert(us_money, "GBP")
+    assert_equal(Currency, uk_money.class)
+    assert_equal("GBP", uk_money.code)
+    assert_equal(638.40, uk_money.amount)
   end
 end

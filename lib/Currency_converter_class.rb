@@ -12,7 +12,15 @@ class CurrencyConverter
     ((num * 100).floor.round(2))/100
   end
 
-  def Unknown_currency_error_message
+  def convert(start_currency_obj, end_currency_code)
+    if @rates.has_key?(start_currency_obj.code) && @rates.has_key?(end_currency_code)
+      "hi there"
+    else
+      unknown_currency_error_message
+    end
+  end
+
+  def unknown_currency_error_message
     "!!  Unknown Currency !!"
   end
 end
