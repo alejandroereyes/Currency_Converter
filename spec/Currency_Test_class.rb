@@ -8,20 +8,20 @@ class Currency_Test < Minitest::Test
   end
 
   def test_Currency_class_exists
-    setup_Currency_class # Given
-    assert(@currency) # Then
+    setup_Currency_class
+    assert(@currency)
   end
 
   def test_currency_code_and_amount
-   setup_Currency_class # Given
-   assert_equal("USD", @currency.code) # Then
+   setup_Currency_class
+   assert_equal("USD", @currency.code)
    assert_equal(100_000_000, @currency.amount)
   end
 
   def test_diff_instances_of_Currency_with_same_values
    setup_Currency_class # Given
-   new_currency = Currency.new("USD", 100_000_000) # When
-   assert_equal(new_currency.code,@currency.code) # Then
+   new_currency = Currency.new("USD", 100_000_000)
+   assert_equal(new_currency.code,@currency.code)
    assert_equal(new_currency.amount, @currency.amount)
   end
 
@@ -65,8 +65,7 @@ class Currency_Test < Minitest::Test
     multiplier = 2.3
     assert_equal(Currency , @currency.multiply_currency(multiplier).class)
   end
-
-end # class
+end
 
 
 
