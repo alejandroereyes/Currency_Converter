@@ -14,11 +14,11 @@ class TestCurrencyConverter < Minitest::Test
     assert_equal(conversion_rates, converter.rates)
   end
 
-  def test_converter
+  def test_converter_math
     setup_converter
     converter = CurrencyConverter.new
-    assert_equal(0.89, converter.convert("USD", 1.00, "EUR"))
-    assert_equal(63.57, converter.convert("USD", 1.00, "INR"))
-    assert_equal(0.70, converter.convert("EUR", 1.00, "GBP"))
+    assert_equal(0.89, converter.convert_math("USD", 1.00, "EUR"))
+    assert_equal(63.57, converter.convert_math("USD", 1.00, "INR"))
+    assert_equal(0.70, converter.convert_math("EUR", 1.00, "GBP"))
   end
 end
