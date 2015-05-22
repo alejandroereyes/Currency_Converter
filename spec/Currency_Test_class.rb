@@ -65,6 +65,12 @@ class Currency_Test < Minitest::Test
     assert_equal(0, @currency.amount)
   end
 
+  def test_multiplication_override
+    setup_Currency_class
+    @currency * 2.3
+    assert_equal(230_000_000.00, @currency.amount)
+  end
+
   def test_dif_currency_error_message_with_add_method
     setup_Currency_class
     new_currency = Currency.new("NIO", 1_000)
@@ -83,6 +89,7 @@ class Currency_Test < Minitest::Test
     setup_Currency_class
     multiplier = 2.3
     assert_equal(Currency , @currency.multiply_currency(multiplier).class)
+    assert_equal(230_000_000, @currency.multiply_currency(multiplier).amount)
   end
 end
 

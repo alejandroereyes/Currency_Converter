@@ -23,7 +23,7 @@ class CurrencyConverter
       raise Unknown_Currency_Code_Error
     end
   end
-end # class
+end
 
 class Unknown_Currency_Code_Error < StandardError
 end

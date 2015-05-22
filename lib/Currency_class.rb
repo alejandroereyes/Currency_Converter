@@ -30,6 +30,12 @@ class Currency
     end
   end
 
+  def *(num)
+    new_amount = @amount * num
+    new_amount = ((new_amount * 100).round(2))/100
+    @amount = new_amount
+  end
+
   def add_currency(giver_code, amount)
     if giver_code == @code
       @amount += amount
