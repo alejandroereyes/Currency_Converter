@@ -34,6 +34,7 @@ class Currency
     new_amount = @amount * num
     new_amount = ((new_amount * 100).round(2))/100
     @amount = new_amount
+    Currency.new(@code, new_amount)
   end
 
   def add_currency(giver_code, amount)

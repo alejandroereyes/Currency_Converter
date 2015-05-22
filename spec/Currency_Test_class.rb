@@ -67,8 +67,10 @@ class Currency_Test < Minitest::Test
 
   def test_multiplication_override
     setup_Currency_class
-    @currency * 2.3
-    assert_equal(230_000_000.00, @currency.amount)
+    new_currency = @currency * 2.3
+    assert_equal(230_000_000.00, new_currency.amount)
+    assert_equal(Currency, new_currency.class)
+    assert_equal("USD", new_currency.code)
   end
 
   def test_dif_currency_error_message_with_add_override
