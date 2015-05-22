@@ -20,11 +20,11 @@ class CurrencyConverter
       new_money = Currency.new(end_currency_code, new_amount)
       new_money
     else
-      unknown_currency_error_message
+      raise
+        UnknownCurrencyCodeError
     end
   end
+end # class
 
-  def unknown_currency_error_message
-    "!!  Unknown Currency !!"
-  end
+class UnknownCurrencyCodeError < StandardError
 end

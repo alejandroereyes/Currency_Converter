@@ -34,7 +34,7 @@ class TestCurrencyConverter < Minitest::Test
     assert_equal(Currency, uk_money.class)
     assert_equal("GBP", uk_money.code)
     assert_equal(638.40, uk_money.amount)
-    assert_equal("!!  Unknown Currency !!", unknown_money)
+    assert_raises(unknown_money)
     assert_equal("JPY", yen_money.code)
     assert_equal(121_026, yen_money.amount)
   end
