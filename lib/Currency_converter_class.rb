@@ -1,3 +1,5 @@
+require_relative 'Currency_class'
+
 class CurrencyConverter
   attr_reader :rates
 
@@ -14,7 +16,9 @@ class CurrencyConverter
 
   def convert(start_currency_obj, end_currency_code)
     if @rates.has_key?(start_currency_obj.code) && @rates.has_key?(end_currency_code)
-
+      new_amount = convert_math(start_currency_obj.code, start_currency_obj.amount, end_currency_code)
+      new_money = Currency.new(end_currency_code, new_amount)
+      new_money
     else
       unknown_currency_error_message
     end
