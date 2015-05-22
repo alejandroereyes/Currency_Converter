@@ -5,6 +5,8 @@ The currency converter folder contains files that allow the user to create a new
 
 Currently the converter holds a static set of conversion rates that were assembled on 5/21/15 - rates do not reflect actual current rates.
 
+The user is able to add, substract, and multiply currencies objects with the same code (same type of currency) using the usual math operators - + * . If currency codes are not equal, it will throw an error. User will need to convert a currency to equal another before doing performing any math on the two.
+
 
 Where is everything?
 -------------------------
