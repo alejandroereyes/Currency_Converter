@@ -18,7 +18,7 @@ class Currency
     if other.is_a?(Currency) && @code == other.code
       @amount -= other.amount
     else
-      dif_currency_msg
+      raise Different_Currency_Code_Error
     end
   end
 
@@ -26,7 +26,7 @@ class Currency
     if other.is_a?(Currency) && @code == other.code
       @amount += other.amount
     else
-      dif_currency_msg
+      raise Different_Currency_Code_Error
     end
   end
 
@@ -40,7 +40,7 @@ class Currency
     if giver_code == @code
       @amount += amount
     else
-      dif_currency_msg
+      raise Different_Currency_Code_Error
     end
   end
 
@@ -48,12 +48,8 @@ class Currency
     if taker_code == @code
       @amount -= amount
     else
-      dif_currency_msg
+      raise Different_Currency_Code_Error
     end
-  end
-
-  def dif_currency_msg
-    "Currencies do not match!"
   end
 
   def multiply_currency(num)
@@ -61,4 +57,7 @@ class Currency
     new_money = Currency.new(@code, new_amount.round)
     new_money
   end
+end
+
+class Different_Currency_Code_Error < StandardError
 end
