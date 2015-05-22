@@ -29,10 +29,13 @@ class TestCurrencyConverter < Minitest::Test
     also_us_money = @converter.convert(us_money, "USD")
     uk_money = @converter.convert(us_money, "GBP")
     unknown_money = @converter.convert(us_money, "OOP")
+    yen_money = @converter.convert(uk_money, "JPY")
     assert_equal(us_money, also_us_money)
     assert_equal(Currency, uk_money.class)
     assert_equal("GBP", uk_money.code)
     assert_equal(638.40, uk_money.amount)
     assert_equal("!!  Unknown Currency !!", unknown_money)
+    assert_equal("JPY", yen_money.code)
+    assert_equal(121_026, yen_money.amount)
   end
 end
