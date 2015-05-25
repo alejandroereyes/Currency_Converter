@@ -2,20 +2,16 @@ class Currency
   attr_reader :code, :amount
 
   def initialize(code, *amount)
-    @code = code.length > 3 ? code_from_sym_method : code
-    @amount = code.length > 3 ? amount_from_sym_method : amount[0]
     @money_symbols = {'$'=> 'USD', '€'=> 'EUR', '£'=> 'GBP', '₹'=> 'INR', 'R'=> 'ZAR', '¥'=> 'JPY'}
+    @code = code.match(/[^a-zA-Z]/) != nil ? code_from_sym_method(code, @money_symbols) : code
+    @amount = code.match(/[^a-zA-Z]/) != nil ? amount_from_sym_method(code) : amount[0]
 
-    def code_from_sym_method(code)
-      if code.length > 3
+    def code_from_sym_method(code, hsh)
         @money_symbols[code[0]]
-      end
     end
 
     def amount_from_sym_method(code)
-      if code.length > 3
         code.slice(1,code.length - 1).to_f
-      end
     end
   end #initialize
 
