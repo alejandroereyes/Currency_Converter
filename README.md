@@ -7,7 +7,7 @@ Currently the converter holds a default static set of conversion rates that were
 
 The currency class is able to be initialize with two arguments, the currency code and the amount. It can also take a single argument in the form of a monetary symbol and amount-"$1.34". The approrpiate code and amount will be assigned to the currency object.  The user is able to add, substract, and multiply currencies objects with the same code (same type of currency) using the usual math operators - + * . If currency codes are not equal, it will throw an error. User will need to convert a currency to equal another before doing performing any math on the two.
 
-There is also a Currency Trader class. It is initialized with two converters set with different rates in order to simulate different time periods.
+There is also a Currency Trader class. It is able to take in multiple converter objects in order to simulate rates from different time periods.
 
 Where is everything?
 -------------------------
