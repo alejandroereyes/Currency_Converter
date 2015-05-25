@@ -91,6 +91,12 @@ class Currency_Test < Minitest::Test
     assert_equal(Currency , @currency.multiply_currency(multiplier).class)
     assert_equal(230_000_000, @currency.multiply_currency(multiplier).amount)
   end
+
+  def test_currency_initialize_with_monetary_symbols
+    cash_money = Currency.new("¥121.40")
+    assert_equal('JPY', cash_money.code)
+    assert_equal(121.40, cash_money.amount)
+  end
 end
 
 
