@@ -45,28 +45,6 @@ class Currency
     @amount = new_amount
     Currency.new(@code, new_amount)
   end
-
-  def add_currency(giver_code, amount)
-    if giver_code == @code
-      @amount += amount
-    else
-      raise Different_Currency_Code_Error
-    end
-  end
-
-  def sub_currency(taker_code, amount)
-    if taker_code == @code
-      @amount -= amount
-    else
-      raise Different_Currency_Code_Error
-    end
-  end
-
-  def multiply_currency(num)
-    new_amount = num * @amount
-    new_money = Currency.new(@code, new_amount.round)
-    new_money
-  end
 end
 
 class Different_Currency_Code_Error < StandardError
