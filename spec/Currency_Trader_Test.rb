@@ -15,12 +15,12 @@ class Currency_Trader_Test < Minitest::Test
     assert(@trader)
   end
 
-  # def test_trader_can_double_money
-  #   setup_Trader_Test
-  #   uk_money = @trader.converter_one.convert(@trader.currency, 'GBP')
-  #   us_money = @trader.converter_two.convert(uk_money, 'USD')
-  #   assert_equal(200_000_000, us_money.amount)
-  # end
+  def test_trader_can_double_money
+    setup_Trader_Test
+    uk_money = @trader.converters[0].convert(@trader.currency, 'GBP')
+    us_money = @trader.converters[1].convert(uk_money, 'USD')
+    assert_equal(200_000_000, us_money.amount)
+  end
 
   def test_converters_array
     setup_Trader_Test

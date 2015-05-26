@@ -13,7 +13,7 @@ class Currency
     def amount_from_sym_method(code)
         code.slice(1,code.length - 1).to_f
     end
-  end #initialize
+  end
 
   def ==(other)
     if other.is_a?(Currency) && @code == other.code && @amount == other.amount
