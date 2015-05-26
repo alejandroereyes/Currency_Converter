@@ -19,7 +19,7 @@ class Currency_Test < Minitest::Test
   end
 
   def test_diff_instances_of_Currency_with_same_values
-   setup_Currency_class # Given
+   setup_Currency_class
    new_currency = Currency.new("USD", 100_000_000)
    assert_equal(new_currency.code,@currency.code)
    assert_equal(new_currency.amount, @currency.amount)

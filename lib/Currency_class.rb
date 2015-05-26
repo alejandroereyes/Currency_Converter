@@ -5,14 +5,14 @@ class Currency
     @money_symbols = {'$'=> 'USD', '€'=> 'EUR', '£'=> 'GBP', '₹'=> 'INR', 'R'=> 'ZAR', '¥'=> 'JPY'}
     @code = code.match(/[^a-zA-Z]/) != nil ? code_from_sym_method(code, @money_symbols) : code
     @amount = code.match(/[^a-zA-Z]/) != nil ? amount_from_sym_method(code) : amount[0]
+  end
 
-    def code_from_sym_method(code, hsh)
-        @money_symbols[code[0]]
-    end
+  def code_from_sym_method(code, hsh)
+      @money_symbols[code[0]]
+  end
 
-    def amount_from_sym_method(code)
-        code.slice(1,code.length - 1).to_f
-    end
+  def amount_from_sym_method(code)
+      code.slice(1,code.length - 1).to_f
   end
 
   def ==(other)

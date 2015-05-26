@@ -1,9 +1,11 @@
 require 'minitest/autorun'
 require_relative '../lib/Currency_trader.rb'
+require_relative'../lib/Currency_class.rb'
 
 class Currency_Trader_Test < Minitest::Test
 
   def setup_Trader_Test
+    cash_money = Currency.new("$100000000")
     converter_one = CurrencyConverter.new
     converter_two = CurrencyConverter.new({'USD'=> 1.00, 'GBP'=> 0.31920, 'JPY'=> 121.026})
     converter_three = CurrencyConverter.new({'USD'=> 1.00, 'GBP'=> 0.31920, 'JPY'=> 121.026})
@@ -31,4 +33,4 @@ class Currency_Trader_Test < Minitest::Test
     assert_equal('JPY', yen_money.code)
     assert_equal(200_000_000, us_money.amount)
   end
-end # class
+end
